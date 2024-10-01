@@ -4,9 +4,9 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    pointer-events: none; /* Prevent blocking interaction with content */
+    pointer-events: none;
     overflow: hidden;
-    z-index: -1; /* Put the rain behind other content */
+    z-index: -1;
     background-color: #1e2636;
 }
 
@@ -15,9 +15,9 @@
     top: -80px;
     width: 2px;
     height: 50px;
-    background: rgba(0, 191, 255, 0.5); /* Light white with transparency */
+    background: rgba(0, 191, 255, 0.5);
     animation: fall linear infinite;
-    opacity: 0.15; /* Slight transparency for a subtle effect */
+    opacity: 0.15;
 }
 
 @keyframes fall {
@@ -25,7 +25,7 @@
         transform: translateY(0);
     }
     100% {
-        transform: translateY(180vh); /* Make the raindrops fall from top to bottom */
+        transform: translateY(180vh);
     }
 }
 
@@ -50,11 +50,15 @@ body {
 }
 
 header {
-    color: #fff;
-    font-size: 18px;
+    color: white;
+    font-size: large;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     padding: 1rem;
     text-align: center;
-    position: relative;
+    backdrop-filter: blur(10px);
+    min-height: 60px;
 }
 
 header a {
@@ -81,8 +85,8 @@ header a {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-
 nav ul li {
     text-decoration: none;
     list-style: none;
@@ -121,7 +125,7 @@ section {
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 3px;
+    border-radius: 5px;
     color: black;
 }
 
@@ -162,26 +166,25 @@ input, textarea {
 
 #skills ul {
     display: flex;
-    justify-content: center; /* Center the skills horizontally */
+    justify-content: center;
     padding: 0;
-    list-style: none; /* Remove bullet points */
+    list-style: none;
 }
 
 #skills li {
-    margin: 0 10px; /* Horizontal spacing */
-    font-size: 1.2rem; /* Adjust font size as needed */
+    margin: 0 10px;
+    font-size: 1.2rem;
     margin-top: 30px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-/* Staggered positioning */
 #skills li:nth-child(odd) {
-    transform: translateY(-10px); /* Move odd items up */
+    transform: translateY(-10px);
 }
 
 #skills li:nth-child(even) {
-    transform: translateY(10px); /* Move even items down */
+    transform: translateY(10px);
 }
 
 .social-links a {
@@ -195,29 +198,29 @@ input, textarea {
     color: #0073b1;
 }
 
+.home-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.tea-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+}
+
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    section {
-        padding: 1rem;
-    }
-
     .menu-toggle {
         display: flex;
-    }
-
-    #skills li {
-        margin: auto;
-        padding: 1rem;
     }
 
     nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        background: rgba(51, 51, 51, 1);
+        background: rgba(51, 51, 51, 0.9);
         width: 100%;
         left: 0;
         top: 50px;
@@ -230,6 +233,20 @@ input, textarea {
 
     nav ul li {
         margin: 1rem 0;
+    }
+
+
+    header {
+        min-height: 50px;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    #skills li {
+        margin: auto;
+        padding: 1rem;
     }
 
     .projects-container {
