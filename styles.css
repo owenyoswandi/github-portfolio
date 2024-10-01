@@ -51,22 +51,68 @@ section {
     text-align: center;
 }
 
-#projects .project {
+.project-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.project {
+    flex: 1 1 calc(25% - 10px);
+    min-width: 220px;
+    max-width: 300px;
     border: 1px solid #ccc;
     padding: 1rem;
-    margin: 1rem 0;
-    text-align: left;
     background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#projects .project a {
-    color: #0073b1;
-    text-decoration: none;
-    font-weight: bold;
+/* Hover effect */
+.project:hover {
+    background-color: #0073b1;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 
-#projects .project a:hover {
-    text-decoration: underline;
+.project h3, .project p {
+    transition: color 0.3s ease;
+}
+
+.project:hover h3,
+.project:hover p {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project {
+        max-width: 100%;
+    }
 }
 
 form {
