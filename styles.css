@@ -6,7 +6,7 @@
     height: 100vh;
     pointer-events: none;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
     background-color: #1e2636;
 }
 
@@ -29,6 +29,11 @@
     }
 }
 
+html {
+    scroll-snap-type: y mandatory;
+    height: 100%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -44,21 +49,39 @@ body h2{
 }
 
 body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100%;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #b8860b; 
+    color: #b8860b;
+}
+
+section {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 header {
     color: white;
     font-size: large;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    width: 100%;
     z-index: 10;
     padding: 1rem;
     text-align: center;
     backdrop-filter: blur(10px);
     min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header a {
@@ -90,17 +113,14 @@ nav ul {
 nav ul li {
     text-decoration: none;
     list-style: none;
-    margin: 0 1rem;
+    margin: 0 2rem;
 }
 
 nav ul li:hover {
     color: #0073b1;
 }
 
-section {
-    padding: 2rem;
-    text-align: center;
-}
+
 
 .project-link {
     text-decoration: none;
@@ -200,9 +220,9 @@ input, textarea {
 
 .home-image {
     max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 8px;
+    height: auto;   
+    margin: 20px;
+    border-radius: 100px;
 }
 
 .tea-image {
@@ -214,6 +234,18 @@ input, textarea {
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .projects-container {
+        flex-direction: column;
     }
 
     nav ul {
