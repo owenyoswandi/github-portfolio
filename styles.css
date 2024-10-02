@@ -120,8 +120,6 @@ nav ul li:hover {
     color: #0073b1;
 }
 
-
-
 .project-link {
     text-decoration: none;
     color: inherit;
@@ -129,19 +127,23 @@ nav ul li:hover {
 
 .projects-container {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 20px;
+    justify-content: center;
     gap: 20px;
+    max-height: 80vh; /* Limit the height of the container */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .project {
-    flex: 1 1 calc(25% - 10px);
+    flex: 1 1 calc(25% - 20px); /* Adjust the flex-basis to fit nicely */
     min-width: 220px;
     max-width: 300px;
-    border: 1px solid #ccc;
+    height: 350px;
+    border: 1px solid white;
     padding: 1rem;
-    background-color: #f9f9f9;
+    background-color: white;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -160,8 +162,7 @@ nav ul li:hover {
     transition: color 0.3s ease;
 }
 
-.project:hover h3,
-.project:hover p {
+.project:hover h3, .project:hover p {
     color: #fff;
 }
 
@@ -220,12 +221,10 @@ input, textarea {
 
 .rainman-image {
     position: fixed;
-    bottom: -100px;
-    width: 30%;
+    width: 75%;
     height: auto;
-    z-index: 1;
+    z-index: -1;
 }
-
 
 .home-image {
     max-width: 100%;
@@ -235,6 +234,12 @@ input, textarea {
 }
 
 .tea-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.tools-image {
     max-width: 50%;
     height: auto;
     border-radius: 8px;
@@ -250,6 +255,7 @@ input, textarea {
     }
 
     section {
+        max-height: auto;
         padding: 1rem;
     }
 
@@ -281,6 +287,18 @@ input, textarea {
         min-height: 50px;
     }
 
+    .projects-container {
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project {
+        max-width: 100%;
+    }
+
+
     #skills ul {
         flex-direction: column;
         align-items: center;
@@ -298,12 +316,19 @@ input, textarea {
         padding: 1rem;
     }
 
-    .projects-container {
-        flex-direction: column;
-        gap: 20px;
+    .tea-image {
+        max-width: 30%;
+        height: auto;
     }
 
-    .project {
-        max-width: 100%;
+    .tools-image {
+        max-width: 32%;
+        height: auto;
+    }
+
+    .rainman-image {
+        width: 100%;
+        height: auto;
+        bottom: 10px;
     }
 }
