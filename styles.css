@@ -40,6 +40,7 @@ html {
     box-sizing: border-box;
 }
 
+
 body h1{
     color: white;
 }
@@ -54,7 +55,7 @@ body {
     height: 100%;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #b8860b;
+    color: #ffea00;
 }
 
 section {
@@ -115,6 +116,11 @@ nav ul li {
     list-style: none;
     margin: 0 2rem;
 }
+
+#home p, #about p{
+    font-size: 1.2rem;
+}
+
 
 nav ul li:hover {
     color: #0073b1;
@@ -181,7 +187,7 @@ input, textarea {
 }
 
 .social-links {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     font-size: 1.2rem;
 }
 
@@ -206,6 +212,10 @@ input, textarea {
 
 #skills li:nth-child(even) {
     transform: translateY(10px);
+}
+
+#contact p{
+    font-size: 1.2rem;
 }
 
 .social-links a {
