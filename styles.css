@@ -140,7 +140,7 @@ nav ul li:hover {
     flex: 1 1 calc(25% - 20px); /* Adjust the flex-basis to fit nicely */
     min-width: 220px;
     max-width: 300px;
-    height: 350px;
+    height: 360px;
     border: 1px solid white;
     padding: 1rem;
     background-color: white;
@@ -245,6 +245,20 @@ input, textarea {
     border-radius: 8px;
 }
 
+.jcc-image {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.char-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -322,6 +336,18 @@ input, textarea {
     }
 
     .tools-image {
+        max-width: 32%;
+        height: auto;
+    }
+
+    .jcc-image {
+        padding-bottom: 0;
+        padding-top: 0;
+        max-width: 77%;
+        height: auto;
+    }
+
+    .char-image {
         max-width: 32%;
         height: auto;
     }
