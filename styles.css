@@ -293,6 +293,33 @@ input, textarea {
     border-radius: 8px;
 }
 
+@media only screen and (max-width: 1024px) {
+    #skills ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    #skills li {
+            margin: 10px 0;
+            padding: 0;
+            font-size: 1.2rem;
+            transform: none;
+        }
+    
+    #skills li:nth-child(odd) {
+        transform: translateY(0);
+    }
+        
+    #skills li:nth-child(even) {
+        transform: translateY(0);
+    }
+
+    .skill-bar {
+        border-radius: 6px;
+    }
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -353,21 +380,6 @@ input, textarea {
         padding: 0;
     }
 
-    #skills li {
-        margin: 10px 0;
-        padding: 0;
-        font-size: 1.2rem;
-        transform: none;
-    }
-
-    #skills li:nth-child(odd) {
-        transform: translateY(0);
-    }
-    
-    #skills li:nth-child(even) {
-        transform: translateY(0);
-    }
-    
     section {
         padding: 1rem;
     }
@@ -398,5 +410,81 @@ input, textarea {
         width: 100%;
         height: auto;
         bottom: 10px;
+    }
+}
+
+/* Media Query for 2560px screens and larger */
+@media only screen and (min-width: 2560px) {
+    h1 {
+        font-size: 3rem; /* Increase header sizes */
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.4rem; /* Adjust paragraph size for readability */
+    }
+
+    section {
+        padding: 40px; /* Add more padding to space out content */
+    }
+
+    header {
+        font-size: 2rem; /* Scale up the header text */
+        padding: 2rem;
+    }
+
+    nav ul li {
+        margin: 0 4rem; /* Increase spacing between navigation items */
+    }
+
+    .projects-container {
+        gap: 40px; /* Increase gap between project items */
+    }
+
+    .project {
+        flex: 1 1 calc(20% - 40px); /* Make project cards larger */
+        max-width: 400px;
+        height: 500px;
+        padding: 2rem; /* Increase padding within projects */
+    }
+
+    .skill-bar-container {
+        width: 200px;
+    }
+
+    .tea-image, .tools-image, .char-image {
+        max-width: 50%;
+    }
+
+    .rainman-image {
+        max-width: 80%;
+    }
+
+    .jcc-image{
+        max-width: 100%;
+    }
+
+    .home-image {
+        width: 250px;
+        border-radius: 300px;
+    }
+
+    .rain {
+        background: linear-gradient(to bottom, #1e2636, #283d55, #225d8d, #00a6ff); /* Optionally, tweak background */
+    }
+
+    .skill-bar {
+        height: 12px; /* Thicker skill bars */
+    }
+
+    #home p, #about p, #skills ul li, #contact p, .social-links a{
+        font-size: 1.8rem;
     }
 }

@@ -26,34 +26,34 @@ mobileMenu.addEventListener('click', () => {
 const skillsSection = document.getElementById('skills');
 const skillBars = document.querySelectorAll('.skill-bar');
 
-let timeout;
-
-const checkScroll = () => {
-    const rect = skillsSection.getBoundingClientRect();
-    clearTimeout(timeout);
-
-    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        skillBars.forEach(bar => {
-            bar.style.width = bar.getAttribute('data-skill');
-        }, 500);
-    } else {
-        timeout = setTimeout(() => {
+// Use IntersectionObserver to track visibility of the skills section
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Trigger the animation when the section comes into view
+            skillBars.forEach(bar => {
+                bar.style.transition = 'width 1s ease';
+                bar.style.width = bar.getAttribute('data-skill');
+            });
+        } else {
+            // Reset the animation when the section goes out of view
             skillBars.forEach(bar => {
                 bar.style.width = '0%';
             });
-        }, 50);
-    }
-};
+        }
+    });
+}, {
+    threshold: 0.5 // Trigger when at least 50% of the section is visible
+});
 
-window.addEventListener('scroll', checkScroll);
-
-checkScroll();
+// Start observing the skills section
+observer.observe(skillsSection);
 
 document.addEventListener('DOMContentLoaded', function() {
-const links = document.querySelectorAll('nav ul li a');
+    const links = document.querySelectorAll('nav ul li a');
     
-links.forEach(link => {
-    link.addEventListener('click', function(e) {
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
     
             const targetId = this.getAttribute('href');
