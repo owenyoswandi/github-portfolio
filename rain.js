@@ -1,13 +1,13 @@
 const rainContainer = document.querySelector('.rain');
-const numberOfDrops = 100; // Adjust the number of raindrops as needed
+const numberOfDrops = 100;
 
 for (let i = 0; i < numberOfDrops; i++) {
     const drop = document.createElement('div');
     drop.classList.add('raindrop');
 
-    const leftPosition = Math.random() * 100; // Store random left position
-    const animationDuration = Math.random() * 2 + 1; // Store random duration between 1s and 3s
-    const animationDelay = Math.random() * 5; // Store random delay
+    const leftPosition = Math.random() * 100;
+    const animationDuration = Math.random() * 2 + 1;
+    const animationDelay = Math.random() * 5;
 
     drop.style.left = `${leftPosition}vw`;
     drop.style.animationDuration = `${animationDuration}s`;
@@ -26,31 +26,43 @@ mobileMenu.addEventListener('click', () => {
 const skillsSection = document.getElementById('skills');
 const skillBars = document.querySelectorAll('.skill-bar');
 
-let timeout; // Variable to hold the timeout ID
+let timeout;
 
 const checkScroll = () => {
-        const rect = skillsSection.getBoundingClientRect();
+    const rect = skillsSection.getBoundingClientRect();
+    clearTimeout(timeout);
 
-        // Clear any existing timeout
-        clearTimeout(timeout);
-
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-            // Add the class to start the animation if the section is in view
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        skillBars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-skill');
+        }, 500);
+    } else {
+        timeout = setTimeout(() => {
             skillBars.forEach(bar => {
-                bar.style.width = bar.getAttribute('data-skill'); // Set width based on data attribute
-            }, 500);
-        } else {
-            // Set a timeout to reset widths after a delay if scrolling out of view
-            timeout = setTimeout(() => {
-                skillBars.forEach(bar => {
-                    bar.style.width = '0%'; // Reset width to 0%
-                });
-            }, 50); // Delay in milliseconds (adjust as needed)
-        }
-    };
+                bar.style.width = '0%';
+            });
+        }, 50);
+    }
+};
 
-    // Add a scroll event listener
-    window.addEventListener('scroll', checkScroll);
+window.addEventListener('scroll', checkScroll);
 
-    // Initial check in case the section is already in view
-    checkScroll();
+checkScroll();
+
+document.addEventListener('DOMContentLoaded', function() {
+const links = document.querySelectorAll('nav ul li a');
+    
+links.forEach(link => {
+    link.addEventListener('click', function(e) {
+            e.preventDefault();
+    
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+                
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+});
